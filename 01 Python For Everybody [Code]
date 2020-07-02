@@ -1,0 +1,138 @@
+========================================================================================
+2.3  
+Write a program to prompt the user for hours and rate per hour using input to compute
+gross pay. Use 35 hours and a rate of 2.75 per hour to test the program (the pay should be
+96.25). You should use input to read a string and float() to convert the string to a number.
+Do not worry about error checking or bad user data.
+
+hrs = input("Enter Hours:")
+rate = input("Enter Rate:")
+hrs = float(hrs)
+rate = float(rate)
+grossPay = float(hrs * rate)
+grossPay = str(grossPay)
+print("Pay: " + grossPay)
+
+========================================================================================
+3.1 Pay calculator v2 with 1.5 modifier if over 40 hours
+Write a program to prompt the user for hours and rate per hour using input to compute gross
+pay. Pay the hourly rate for the hours up to 40 and 1.5 times the hourly rate for all hours
+worked above 40 hours. Use 45 hours and a rate of 10.50 per hour to test the program (the pay
+should be 498.75). You should use input to read a string and float() to convert the string to a
+number. Do not worry about error checking the user input - assume the user types numbers properly.
+
+hrs = input("Enter Hours:")
+rate = input("Enter Rate:")
+h = float(hrs)
+r = float(rate)
+if h < 40:
+    grossPay = (h * r)
+else:
+    h -= 40
+    grossPay = (40 * r)
+    grossPay += (1.5 * (h * r))
+print(grossPay)
+
+========================================================================================
+3.3 - Grade Calculator
+Write a program to prompt for a score between 0.0 and 1.0. If the score is out of range,
+print an error. If the score is between 0.0 and 1.0, print a grade using the following table:
+Score Grade
+>= 0.9 A     >= 0.8 B     >= 0.7 C     >= 0.6 D     < 0.6 F
+If the user enters a value out of range, print a suitable error message and exit.
+For the test, enter a score of 0.85.
+
+score = float(input("Enter Score: "))
+grade = ""
+try:
+    if ((score >= 0.9) and (score >= 0) and (score <= 1)):
+        grade = "A"
+    elif ((score >= 0.8) and (score >= 0) and (score <= 1)):
+        grade = "B"
+    elif ((score >= 0.7) and (score >= 0) and (score <= 1)):
+        grade = "C"
+    elif ((score >= 0.6) and (score >= 0) and (score <= 1)):
+        grade = "D"
+    elif ((score < 0.6) and (score >= 0) and (score <= 1)):
+        grade = "F"
+    print(grade)
+except:
+        print("Error storing grade on server.")
+        quit()
+        
+========================================================================================
+4.6 - Pay calculator v2
+Write a program to prompt the user for hours and rate per hour using input to compute gross
+pay. Pay should be the normal rate for hours up to 40 and time-and-a-half for the hourly rate
+for all hours worked above 40 hours. Put the logic to do the computation of pay in a function
+called computepay() and use the function to do the computation. The function should return a
+value. Use 45 hours and a rate of 10.50 per hour to test the program (the pay should be 498.75).
+You should use input to read a string and float() to convert the string to a number. Do not worry
+about error checking the user input unless you want to - you can assume the user types numbers
+properly. Do not name your variable sum or use the sum() function.
+
+def computepay(h,r):
+    grosspay = 0
+    if h < 40:
+        grosspay = (h * r)
+    else:
+        h -= 40
+        grosspay = (40 * r)
+        grosspay += (1.5 * (h * r))
+    return grosspay #42.37
+hrs = input("Enter Hours:")
+rate = input("Enter Rate:")
+h = float(hrs)
+r = float(rate)
+p = computepay(h,r) #10, 20
+print("Pay",p)
+
+========================================================================================
+5.2 
+Write a program that repeatedly prompts a user for integer numbers until the user enters 'done'.
+Once 'done' is entered, print out the largest and smallest of the numbers. If the user enters anything
+other than a valid number catch it with a try/except and put out an appropriate message and ignore the
+number. Enter 7, 2, bob, 10, and 4 and match the output below.
+
+largest = None
+smallest = None
+while True:
+    num = input("Enter a number: ")
+    if num == "done" : break
+    else:
+        try:
+            num = int(num)
+        except:
+            print("Invalid input")
+            continue
+        if largest == None : largest = num
+        if smallest == None: smallest = num
+        if num > largest:
+            largest = num
+        if num < smallest:
+            smallest = num
+print("Maximum is", largest)
+print("Minimum is", smallest)
+
+========================================================================================
+6.5 Write code using find() and string slicing (see section 6.10) to extract the number at the
+end of the line below. Convert the extracted value to a floating point number and print it out.
+
+text = "X-DSPAM-Confidence:    0.8475";
+colon = text.find(":")
+colon += 4
+print(float(text[colon:]))
+
+========================================================================================
+
+========================================================================================
+
+========================================================================================
+
+========================================================================================
+
+========================================================================================
+
+========================================================================================
+
+========================================================================================
